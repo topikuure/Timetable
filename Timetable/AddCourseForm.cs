@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Timetable
 {
-    public partial class MainForm : Form
+    public partial class AddCourseForm : Form
     {
-        public MainForm()
+        public AddCourseForm()
         {
             InitializeComponent();
-        }
-
-        private void addCourseButton_Click(object sender, EventArgs e)
-        {
-            //...
-            //dialog.dispose()
         }
     }
 }
