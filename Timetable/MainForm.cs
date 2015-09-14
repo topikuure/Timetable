@@ -16,5 +16,10 @@ namespace Timetable
         {
             InitializeComponent();
         }
+
+        private void addCourseButton_Click(object sender, EventArgs e)
+        {
+            //implement
+        }
     }
 }

@@ -98,7 +98,7 @@
             // mondayLabel
             // 
             this.mondayLabel.AutoSize = true;
-            this.mondayLabel.Location = new System.Drawing.Point(91, 1);
+            this.mondayLabel.Location = new System.Drawing.Point(90, 1);
             this.mondayLabel.Name = "mondayLabel";
             this.mondayLabel.Size = new System.Drawing.Size(23, 13);
             this.mondayLabel.TabIndex = 0;
@@ -107,7 +107,7 @@
             // tuesdayLabel
             // 
             this.tuesdayLabel.AutoSize = true;
-            this.tuesdayLabel.Location = new System.Drawing.Point(178, 1);
+            this.tuesdayLabel.Location = new System.Drawing.Point(176, 1);
             this.tuesdayLabel.Name = "tuesdayLabel";
             this.tuesdayLabel.Size = new System.Drawing.Size(17, 13);
             this.tuesdayLabel.TabIndex = 1;
@@ -116,7 +116,7 @@
             // wednesdayLabel
             // 
             this.wednesdayLabel.AutoSize = true;
-            this.wednesdayLabel.Location = new System.Drawing.Point(265, 1);
+            this.wednesdayLabel.Location = new System.Drawing.Point(262, 1);
             this.wednesdayLabel.Name = "wednesdayLabel";
             this.wednesdayLabel.Size = new System.Drawing.Size(21, 13);
             this.wednesdayLabel.TabIndex = 2;
@@ -125,7 +125,7 @@
             // thursdayLabel
             // 
             this.thursdayLabel.AutoSize = true;
-            this.thursdayLabel.Location = new System.Drawing.Point(352, 1);
+            this.thursdayLabel.Location = new System.Drawing.Point(348, 1);
             this.thursdayLabel.Name = "thursdayLabel";
             this.thursdayLabel.Size = new System.Drawing.Size(22, 13);
             this.thursdayLabel.TabIndex = 3;
@@ -134,7 +134,7 @@
             // fridayLabel
             // 
             this.fridayLabel.AutoSize = true;
-            this.fridayLabel.Location = new System.Drawing.Point(439, 1);
+            this.fridayLabel.Location = new System.Drawing.Point(434, 1);
             this.fridayLabel.Name = "fridayLabel";
             this.fridayLabel.Size = new System.Drawing.Size(21, 13);
             this.fridayLabel.TabIndex = 4;
@@ -237,31 +237,31 @@
             // uusiToolStripMenuItem
             // 
             this.uusiToolStripMenuItem.Name = "uusiToolStripMenuItem";
-            this.uusiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uusiToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.uusiToolStripMenuItem.Text = "Uusi";
             // 
             // avaaToolStripMenuItem
             // 
             this.avaaToolStripMenuItem.Name = "avaaToolStripMenuItem";
-            this.avaaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avaaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.avaaToolStripMenuItem.Text = "Avaa";
             // 
             // tallennaToolStripMenuItem
             // 
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna";
             // 
             // tulostaToolStripMenuItem
             // 
             this.tulostaToolStripMenuItem.Name = "tulostaToolStripMenuItem";
-            this.tulostaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tulostaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.tulostaToolStripMenuItem.Text = "Tulosta";
             // 
             // poistuToolStripMenuItem
             // 
             this.poistuToolStripMenuItem.Name = "poistuToolStripMenuItem";
-            this.poistuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.poistuToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.poistuToolStripMenuItem.Text = "Poistu";
             // 
             // courseManagerPanel
@@ -287,6 +287,7 @@
             this.addCourseButton.TabIndex = 0;
             this.addCourseButton.Text = "Lisää kurssi";
             this.addCourseButton.UseVisualStyleBackColor = true;
+            this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
             // courseListPanel
             // 
