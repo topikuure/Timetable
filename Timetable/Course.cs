@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Timetable
 {
-    class Course
+    public class Course
     {
         public string Name { get; set; }
         public string Classroom { get; set; }

@@ -32,14 +32,13 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.classroomLabel = new System.Windows.Forms.Label();
             this.backColorLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.nameColorButton = new System.Windows.Forms.Button();
             this.classroomColorButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.backColorButton = new System.Windows.Forms.Button();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.classroomTextBox = new System.Windows.Forms.TextBox();
-            this.backColorTextBox = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,16 +53,16 @@
             this.tableLayoutPanel1.Controls.Add(this.backColorLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.nameColorButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.classroomColorButton, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.backColorButton, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.nameTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.classroomTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.backColorTextBox, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -92,31 +91,14 @@
             // backColorLabel
             // 
             this.backColorLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.backColorLabel, 2);
             this.backColorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backColorLabel.Location = new System.Drawing.Point(3, 66);
             this.backColorLabel.Name = "backColorLabel";
-            this.backColorLabel.Size = new System.Drawing.Size(79, 34);
+            this.backColorLabel.Size = new System.Drawing.Size(164, 34);
             this.backColorLabel.TabIndex = 2;
             this.backColorLabel.Text = "Taustan väri";
             this.backColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(140, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tallenna";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Peruuta";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // nameColorButton
             // 
@@ -136,14 +118,14 @@
             this.classroomColorButton.TabIndex = 4;
             this.classroomColorButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // backColorButton
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(173, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 28);
-            this.button4.TabIndex = 5;
-            this.button4.UseVisualStyleBackColor = true;
+            this.backColorButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backColorButton.Location = new System.Drawing.Point(173, 69);
+            this.backColorButton.Name = "backColorButton";
+            this.backColorButton.Size = new System.Drawing.Size(24, 28);
+            this.backColorButton.TabIndex = 5;
+            this.backColorButton.UseVisualStyleBackColor = true;
             // 
             // nameTextBox
             // 
@@ -159,20 +141,34 @@
             this.classroomTextBox.Size = new System.Drawing.Size(79, 20);
             this.classroomTextBox.TabIndex = 7;
             // 
-            // backColorTextBox
+            // saveButton
             // 
-            this.backColorTextBox.Location = new System.Drawing.Point(88, 69);
-            this.backColorTextBox.Name = "backColorTextBox";
-            this.backColorTextBox.Size = new System.Drawing.Size(79, 20);
-            this.backColorTextBox.TabIndex = 8;
+            this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.saveButton.Location = new System.Drawing.Point(140, 153);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 1;
+            this.saveButton.Text = "Tallenna";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelButton.Location = new System.Drawing.Point(12, 153);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Text = "Peruuta";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(227, 188);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(279, 188);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AddCourseForm";
             this.Text = "Lisää Kurssi";
@@ -188,13 +184,12 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label classroomLabel;
         private System.Windows.Forms.Label backColorLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button nameColorButton;
         private System.Windows.Forms.Button classroomColorButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button backColorButton;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox classroomTextBox;
-        private System.Windows.Forms.TextBox backColorTextBox;
     }
 }

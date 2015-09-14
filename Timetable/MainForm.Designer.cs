@@ -51,7 +51,7 @@
             this.poistuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courseManagerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseButton = new System.Windows.Forms.Button();
-            this.courseListPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.coursesListBox = new System.Windows.Forms.ListBox();
             this.timetableLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
@@ -269,7 +269,7 @@
             this.courseManagerPanel.ColumnCount = 1;
             this.courseManagerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.courseManagerPanel.Controls.Add(this.addCourseButton, 0, 0);
-            this.courseManagerPanel.Controls.Add(this.courseListPanel, 0, 1);
+            this.courseManagerPanel.Controls.Add(this.coursesListBox, 0, 1);
             this.courseManagerPanel.Location = new System.Drawing.Point(0, 40);
             this.courseManagerPanel.Name = "courseManagerPanel";
             this.courseManagerPanel.RowCount = 2;
@@ -289,15 +289,15 @@
             this.addCourseButton.UseVisualStyleBackColor = true;
             this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
-            // courseListPanel
+            // coursesListBox
             // 
-            this.courseListPanel.AutoScroll = true;
-            this.courseListPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.courseListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.courseListPanel.Location = new System.Drawing.Point(3, 42);
-            this.courseListPanel.Name = "courseListPanel";
-            this.courseListPanel.Size = new System.Drawing.Size(194, 346);
-            this.courseListPanel.TabIndex = 1;
+            this.coursesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coursesListBox.FormattingEnabled = true;
+            this.coursesListBox.Location = new System.Drawing.Point(3, 42);
+            this.coursesListBox.MultiColumn = true;
+            this.coursesListBox.Name = "coursesListBox";
+            this.coursesListBox.Size = new System.Drawing.Size(194, 346);
+            this.coursesListBox.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.ToolStripMenuItem poistuToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel courseManagerPanel;
         private System.Windows.Forms.Button addCourseButton;
-        private System.Windows.Forms.FlowLayoutPanel courseListPanel;
+        private System.Windows.Forms.ListBox coursesListBox;
     }
 }
 
