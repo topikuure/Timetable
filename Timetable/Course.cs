@@ -16,9 +16,9 @@ namespace Timetable
         public Color ClassroomColor { get; set; }
         public Color BackColor { get; set; }
 
-        public void AddLesson(int cellX, int cellY, int rowSpan = 1)
+        public void AddLesson(Lesson lesson)
         {
-            lessonList.Add(new Lesson(this, cellX, cellY, rowSpan));
+            lessonList.Add(lesson);
         }
     }
 }

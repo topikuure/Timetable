@@ -22,6 +22,16 @@ namespace Timetable
             InitializeComponent();
             TimeTableRowCount = this.timetableLayoutPanel.RowCount;
             TimeTableColumnCount = this.timetableLayoutPanel.ColumnCount;
+
+            //Testi
+            Course course = new Course();
+            course.Name = "Kurssi";
+            course.Classroom = "Luokka";
+            course.NameColor = Color.Black;
+            course.BackColor = Color.Khaki;
+            course.ClassroomColor = Color.IndianRed;
+            courseList.Add(course);
+            coursesListBox.Items.Add(course.Name);
         }
 
         private void addCourseButton_Click(object sender, EventArgs e)
@@ -39,7 +49,7 @@ namespace Timetable
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
-            this.coursesListBox.DoDragDrop(this.coursesListBox.SelectedItem.ToString(), DragDropEffects.Move);
+            this.coursesListBox.DoDragDrop(courseList[this.coursesListBox.SelectedIndex], DragDropEffects.Move);
         }
 
         private void timetableLayoutPanel_DragEnter(object sender, DragEventArgs e)
@@ -55,10 +65,6 @@ namespace Timetable
             int rowHeight = this.timetableLayoutPanel.GetRowHeights()[1];
             Point tableLocation = this.timetableLayoutPanel.Location;
             Point mouse = this.timetableLayoutPanel.PointToClient(new Point(e.X, e.Y));
-
-            //Vaihda labelin tilalle Course ja revi siitä nimi, luokka, värit yms.
-            Label label = new Label();
-            label.Text = (string)e.Data.GetData(typeof(string));
 
             if (mouse.X > columnWidth && mouse.Y > rowHeight)
             {
@@ -79,7 +85,12 @@ namespace Timetable
                     }
                 }
                 if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) == null)
-                    this.timetableLayoutPanel.Controls.Add(label, cellX, cellY);
+                {
+                    Course course = (Course)e.Data.GetData(typeof(Course));
+                    Lesson lesson = new Lesson(course, cellX, cellY);
+                    course.AddLesson(lesson);
+                    this.timetableLayoutPanel.Controls.Add(lesson.label, cellX, cellY);
+                }
             }
         }
     }

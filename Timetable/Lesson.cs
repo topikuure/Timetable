@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Timetable
 {
     public class Lesson
     {
         private Course course;
-        public int CellX { get; set; }
-        public int CellY { get; set; }
-        public int RowSpan { get; set; }
+        public Label label = new Label();
+        public int cellX;
+        public int cellY;
+        public int rowSpan;
 
         public Lesson(Course course, int cellX, int cellY, int rowSpan = 1)
         {
             this.course = course;
-            this.CellX = cellX;
-            this.CellY = cellY;
-            this.RowSpan = rowSpan;
+            this.cellX = cellX;
+            this.cellY = cellY;
+            this.rowSpan = rowSpan;
+            
+            label.Margin = new Padding(0);
+            label.Dock = DockStyle.Fill;
+            label.Text = course.Name + Environment.NewLine + course.Classroom;
+            label.BackColor = course.BackColor;
+            label.ForeColor = course.NameColor;
         }
     }
 }

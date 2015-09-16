@@ -17,19 +17,17 @@ namespace Timetable
         public AddCourseForm()
         {
             InitializeComponent();
-            this.nameTextBox.Focus();
-            //Tai:
-            //this.cancelButton.Focus();
+            this.cancelButton.Focus();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             course = new Course();
             this.course.Name = nameTextBox.Text;
-            this.course.Classroom = classroomColorButton.Text;
-            this.course.NameColor = Color.Black;
+            this.course.Classroom = classroomTextBox.Text;
+            this.course.NameColor = Color.Yellow;
             this.course.ClassroomColor = Color.Red;
-            this.course.BackColor = Color.Beige;
+            this.course.BackColor = Color.Blue;
         }
     }
 }
