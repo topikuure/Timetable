@@ -15,7 +15,7 @@ namespace Timetable
         public int cellY;
         public int rowSpan;
 
-        public Lesson(Course course, int cellX, int cellY, int rowSpan = 1)
+        public Lesson(Course course, int cellX, int cellY, int rowSpan)
         {
             this.course = course;
             this.cellX = cellX;

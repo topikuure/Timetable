@@ -84,12 +84,20 @@ namespace Timetable
                         break;
                     }
                 }
-                if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) == null)
+                bool cellTaken = false;
+
+                if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
+                    cellTaken = true;
+                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + (Settings.defaultRowSpan - 1)) != null)
+                    cellTaken = true;
+
+                if (cellTaken == false)
                 {
                     Course course = (Course)e.Data.GetData(typeof(Course));
-                    Lesson lesson = new Lesson(course, cellX, cellY);
+                    Lesson lesson = new Lesson(course, cellX, cellY, Settings.defaultRowSpan);
                     course.AddLesson(lesson);
                     this.timetableLayoutPanel.Controls.Add(lesson.label, cellX, cellY);
+                    this.timetableLayoutPanel.SetRowSpan(lesson.label, lesson.rowSpan);
                 }
             }
         }
