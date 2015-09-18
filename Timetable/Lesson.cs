@@ -10,7 +10,9 @@ namespace Timetable
     public class Lesson
     {
         private Course course;
-        public Label label = new Label();
+        public FlowLayoutPanel cellControl = new FlowLayoutPanel();
+        public Label nameLabel = new Label();
+        public Label classroomLabel = new Label();
         public int cellX;
         public int cellY;
         public int rowSpan;
@@ -22,11 +24,17 @@ namespace Timetable
             this.cellY = cellY;
             this.rowSpan = rowSpan;
             
-            label.Margin = new Padding(0);
-            label.Dock = DockStyle.Fill;
-            label.Text = course.Name + Environment.NewLine + course.Classroom;
-            label.BackColor = course.BackColor;
-            label.ForeColor = course.NameColor;
+            nameLabel.Text = course.Name;
+            nameLabel.ForeColor = course.NameColor;
+            
+            classroomLabel.Text = course.Classroom;
+            classroomLabel.ForeColor = course.ClassroomColor;
+
+            cellControl.Margin = new Padding(0);
+            cellControl.Padding = new Padding(0, 2, 0, 2);
+            cellControl.FlowDirection = FlowDirection.TopDown;
+            cellControl.Controls.Add(nameLabel);
+            cellControl.Controls.Add(classroomLabel);
         }
     }
 }

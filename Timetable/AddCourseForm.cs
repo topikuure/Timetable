@@ -25,9 +25,9 @@ namespace Timetable
             course = new Course();
             this.course.Name = nameTextBox.Text;
             this.course.Classroom = classroomTextBox.Text;
-            this.course.NameColor = Color.Yellow;
+            this.course.NameColor = Color.Black;
             this.course.ClassroomColor = Color.Red;
-            this.course.BackColor = Color.Blue;
+            this.course.BackColor = Color.White;
         }
     }
 }

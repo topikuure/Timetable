@@ -96,8 +96,8 @@ namespace Timetable
                     Course course = (Course)e.Data.GetData(typeof(Course));
                     Lesson lesson = new Lesson(course, cellX, cellY, Settings.defaultRowSpan);
                     course.AddLesson(lesson);
-                    this.timetableLayoutPanel.Controls.Add(lesson.label, cellX, cellY);
-                    this.timetableLayoutPanel.SetRowSpan(lesson.label, lesson.rowSpan);
+                    this.timetableLayoutPanel.Controls.Add(lesson.cellControl, cellX, cellY);
+                    this.timetableLayoutPanel.SetRowSpan(lesson.cellControl, lesson.rowSpan);
                 }
             }
         }
