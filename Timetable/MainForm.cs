@@ -47,8 +47,8 @@ namespace Timetable
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
-            //Kaatuu välillä
-            this.coursesListBox.DoDragDrop(courseList[this.coursesListBox.SelectedIndex], DragDropEffects.Move);
+            if(this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
+                this.coursesListBox.DoDragDrop(courseList[this.coursesListBox.SelectedIndex], DragDropEffects.Move);
         }
 
         private void timetableLayoutPanel_DragEnter(object sender, DragEventArgs e)

@@ -51,8 +51,8 @@
             this.poistuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courseManagerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseButton = new System.Windows.Forms.Button();
-            this.coursesListBox = new System.Windows.Forms.ListBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.coursesListBox = new System.Windows.Forms.ListBox();
             this.timetableLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
@@ -297,19 +297,6 @@
             this.addCourseButton.UseVisualStyleBackColor = true;
             this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
-            // coursesListBox
-            // 
-            this.coursesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coursesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coursesListBox.FormattingEnabled = true;
-            this.coursesListBox.ItemHeight = 16;
-            this.coursesListBox.Location = new System.Drawing.Point(0, 0);
-            this.coursesListBox.MultiColumn = true;
-            this.coursesListBox.Name = "coursesListBox";
-            this.coursesListBox.Size = new System.Drawing.Size(194, 163);
-            this.coursesListBox.TabIndex = 1;
-            this.coursesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.coursesListBox_MouseDown);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -323,6 +310,19 @@
             this.splitContainer1.Size = new System.Drawing.Size(194, 320);
             this.splitContainer1.SplitterDistance = 163;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // coursesListBox
+            // 
+            this.coursesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coursesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coursesListBox.FormattingEnabled = true;
+            this.coursesListBox.ItemHeight = 16;
+            this.coursesListBox.Location = new System.Drawing.Point(0, 0);
+            this.coursesListBox.MultiColumn = true;
+            this.coursesListBox.Name = "coursesListBox";
+            this.coursesListBox.Size = new System.Drawing.Size(194, 163);
+            this.coursesListBox.TabIndex = 1;
+            this.coursesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.coursesListBox_MouseDown);
             // 
             // MainForm
             // 
