@@ -24,9 +24,7 @@ namespace Timetable
             TimeTableColumnCount = this.timetableLayoutPanel.ColumnCount;
 
             //Testi
-            Course course = new Course();
-            course.Name = "Kurssi";
-            course.Classroom = "Luokka";
+            Course course = new Course("Kurssi");
             course.NameColor = Color.Black;
             course.BackColor = Color.Khaki;
             course.ClassroomColor = Color.IndianRed;
@@ -49,6 +47,7 @@ namespace Timetable
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
+            //Kaatuu välillä
             this.coursesListBox.DoDragDrop(courseList[this.coursesListBox.SelectedIndex], DragDropEffects.Move);
         }
 

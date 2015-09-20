@@ -12,22 +12,17 @@ namespace Timetable
 {
     public partial class AddCourseForm : Form
     {
-        public Course course;
+        public Course course = null;
 
         public AddCourseForm()
         {
             InitializeComponent();
-            this.cancelButton.Focus();
+            this.nameTextBox.Select();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            course = new Course();
-            this.course.Name = nameTextBox.Text;
-            this.course.Classroom = classroomTextBox.Text;
-            this.course.NameColor = Color.Black;
-            this.course.ClassroomColor = Color.Red;
-            this.course.BackColor = Color.White;
+            course = new Course(this.nameTextBox.Text);
         }
     }
 }

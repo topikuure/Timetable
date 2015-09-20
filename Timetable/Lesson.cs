@@ -13,7 +13,17 @@ namespace Timetable
         private Label nameLabel = new Label();
         private Label classroomLabel = new Label();
 
-        public string Classroom { get; set; }
+        public string Classroom
+        {
+            get
+            {
+                return classroomLabel.Text;
+            }
+            set
+            {
+                classroomLabel.Text = value;
+            }
+        }
         public FlowLayoutPanel CellControl { get; private set; } = new FlowLayoutPanel();
         public int CellX { get; set; }
         public int CellY { get; set; }
@@ -28,9 +38,7 @@ namespace Timetable
             
             nameLabel.Text = course.Name;
             nameLabel.ForeColor = course.NameColor;
-
-            this.Classroom = course.Classroom;
-            classroomLabel.Text = this.Classroom;
+            
             classroomLabel.ForeColor = course.ClassroomColor;
 
             CellControl.Margin = new Padding(0);
