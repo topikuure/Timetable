@@ -52,9 +52,13 @@
             this.courseManagerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseButton = new System.Windows.Forms.Button();
             this.coursesListBox = new System.Windows.Forms.ListBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timetableLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timetableLayoutPanel
@@ -272,12 +276,13 @@
             this.courseManagerPanel.ColumnCount = 1;
             this.courseManagerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.courseManagerPanel.Controls.Add(this.addCourseButton, 0, 0);
-            this.courseManagerPanel.Controls.Add(this.coursesListBox, 0, 1);
+            this.courseManagerPanel.Controls.Add(this.splitContainer1, 0, 1);
             this.courseManagerPanel.Location = new System.Drawing.Point(0, 40);
             this.courseManagerPanel.Name = "courseManagerPanel";
             this.courseManagerPanel.RowCount = 2;
-            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.33333F));
+            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.courseManagerPanel.Size = new System.Drawing.Size(200, 391);
             this.courseManagerPanel.TabIndex = 2;
             // 
@@ -286,7 +291,7 @@
             this.addCourseButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addCourseButton.Location = new System.Drawing.Point(3, 3);
             this.addCourseButton.Name = "addCourseButton";
-            this.addCourseButton.Size = new System.Drawing.Size(194, 33);
+            this.addCourseButton.Size = new System.Drawing.Size(194, 59);
             this.addCourseButton.TabIndex = 0;
             this.addCourseButton.Text = "Lisää kurssi";
             this.addCourseButton.UseVisualStyleBackColor = true;
@@ -298,12 +303,26 @@
             this.coursesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursesListBox.FormattingEnabled = true;
             this.coursesListBox.ItemHeight = 16;
-            this.coursesListBox.Location = new System.Drawing.Point(3, 42);
+            this.coursesListBox.Location = new System.Drawing.Point(0, 0);
             this.coursesListBox.MultiColumn = true;
             this.coursesListBox.Name = "coursesListBox";
-            this.coursesListBox.Size = new System.Drawing.Size(194, 346);
+            this.coursesListBox.Size = new System.Drawing.Size(194, 163);
             this.coursesListBox.TabIndex = 1;
             this.coursesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.coursesListBox_MouseDown);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 68);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.coursesListBox);
+            this.splitContainer1.Size = new System.Drawing.Size(194, 320);
+            this.splitContainer1.SplitterDistance = 163;
+            this.splitContainer1.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -321,6 +340,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.courseManagerPanel.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +374,7 @@
         private System.Windows.Forms.TableLayoutPanel courseManagerPanel;
         private System.Windows.Forms.Button addCourseButton;
         private System.Windows.Forms.ListBox coursesListBox;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

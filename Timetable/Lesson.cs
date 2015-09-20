@@ -10,31 +10,34 @@ namespace Timetable
     public class Lesson
     {
         private Course course;
-        public FlowLayoutPanel cellControl = new FlowLayoutPanel();
-        public Label nameLabel = new Label();
-        public Label classroomLabel = new Label();
-        public int cellX;
-        public int cellY;
-        public int rowSpan;
+        private Label nameLabel = new Label();
+        private Label classroomLabel = new Label();
+
+        public string Classroom { get; set; }
+        public FlowLayoutPanel CellControl { get; private set; } = new FlowLayoutPanel();
+        public int CellX { get; set; }
+        public int CellY { get; set; }
+        public int RowSpan { get; set; }
 
         public Lesson(Course course, int cellX, int cellY, int rowSpan)
         {
             this.course = course;
-            this.cellX = cellX;
-            this.cellY = cellY;
-            this.rowSpan = rowSpan;
+            this.CellX = cellX;
+            this.CellY = cellY;
+            this.RowSpan = rowSpan;
             
             nameLabel.Text = course.Name;
             nameLabel.ForeColor = course.NameColor;
-            
-            classroomLabel.Text = course.Classroom;
+
+            this.Classroom = course.Classroom;
+            classroomLabel.Text = this.Classroom;
             classroomLabel.ForeColor = course.ClassroomColor;
 
-            cellControl.Margin = new Padding(0);
-            cellControl.Padding = new Padding(0, 2, 0, 2);
-            cellControl.FlowDirection = FlowDirection.TopDown;
-            cellControl.Controls.Add(nameLabel);
-            cellControl.Controls.Add(classroomLabel);
+            CellControl.Margin = new Padding(0);
+            CellControl.Padding = new Padding(0, 2, 0, 2);
+            CellControl.FlowDirection = FlowDirection.TopDown;
+            CellControl.Controls.Add(nameLabel);
+            CellControl.Controls.Add(classroomLabel);
         }
     }
 }

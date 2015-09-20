@@ -10,6 +10,7 @@ namespace Timetable
     public class Course
     {
         private List<Lesson> lessonList = new List<Lesson>();
+
         public string Name { get; set; }
         public string Classroom { get; set; }
         public Color NameColor { get; set; }

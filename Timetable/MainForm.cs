@@ -88,16 +88,16 @@ namespace Timetable
 
                 if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
                     cellTaken = true;
-                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + (Settings.defaultRowSpan - 1)) != null)
+                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + (Settings.DefaultRowSpan - 1)) != null)
                     cellTaken = true;
 
                 if (cellTaken == false)
                 {
                     Course course = (Course)e.Data.GetData(typeof(Course));
-                    Lesson lesson = new Lesson(course, cellX, cellY, Settings.defaultRowSpan);
+                    Lesson lesson = new Lesson(course, cellX, cellY, Settings.DefaultRowSpan);
                     course.AddLesson(lesson);
-                    this.timetableLayoutPanel.Controls.Add(lesson.cellControl, cellX, cellY);
-                    this.timetableLayoutPanel.SetRowSpan(lesson.cellControl, lesson.rowSpan);
+                    this.timetableLayoutPanel.Controls.Add(lesson.CellControl, cellX, cellY);
+                    this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
                 }
             }
         }

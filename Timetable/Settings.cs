@@ -8,6 +8,6 @@ namespace Timetable
 {
     class Settings
     {
-        public static int defaultRowSpan = 2;
+        public static int DefaultRowSpan { get; set; } = 2;
     }
 }
