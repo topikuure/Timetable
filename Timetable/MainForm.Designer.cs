@@ -34,31 +34,31 @@
             this.wednesdayLabel = new System.Windows.Forms.Label();
             this.thursdayLabel = new System.Windows.Forms.Label();
             this.fridayLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.time1Label = new System.Windows.Forms.Label();
+            this.time2Label = new System.Windows.Forms.Label();
+            this.time3Label = new System.Windows.Forms.Label();
+            this.time4Llabel = new System.Windows.Forms.Label();
+            this.time5Label = new System.Windows.Forms.Label();
+            this.time6Label = new System.Windows.Forms.Label();
+            this.time7Label = new System.Windows.Forms.Label();
+            this.time8Label = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tiedostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uusiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.avaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tulostaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.poistuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courseManagerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseButton = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.courseManagerSplitContainer = new System.Windows.Forms.SplitContainer();
             this.coursesListBox = new System.Windows.Forms.ListBox();
             this.timetableLayoutPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseManagerSplitContainer)).BeginInit();
+            this.courseManagerSplitContainer.Panel1.SuspendLayout();
+            this.courseManagerSplitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // timetableLayoutPanel
@@ -77,14 +77,14 @@
             this.timetableLayoutPanel.Controls.Add(this.wednesdayLabel, 3, 0);
             this.timetableLayoutPanel.Controls.Add(this.thursdayLabel, 4, 0);
             this.timetableLayoutPanel.Controls.Add(this.fridayLabel, 5, 0);
-            this.timetableLayoutPanel.Controls.Add(this.label1, 0, 1);
-            this.timetableLayoutPanel.Controls.Add(this.label2, 0, 2);
-            this.timetableLayoutPanel.Controls.Add(this.label3, 0, 3);
-            this.timetableLayoutPanel.Controls.Add(this.label4, 0, 4);
-            this.timetableLayoutPanel.Controls.Add(this.label5, 0, 5);
-            this.timetableLayoutPanel.Controls.Add(this.label6, 0, 6);
-            this.timetableLayoutPanel.Controls.Add(this.label7, 0, 7);
-            this.timetableLayoutPanel.Controls.Add(this.label8, 0, 8);
+            this.timetableLayoutPanel.Controls.Add(this.time1Label, 0, 1);
+            this.timetableLayoutPanel.Controls.Add(this.time2Label, 0, 2);
+            this.timetableLayoutPanel.Controls.Add(this.time3Label, 0, 3);
+            this.timetableLayoutPanel.Controls.Add(this.time4Llabel, 0, 4);
+            this.timetableLayoutPanel.Controls.Add(this.time5Label, 0, 5);
+            this.timetableLayoutPanel.Controls.Add(this.time6Label, 0, 6);
+            this.timetableLayoutPanel.Controls.Add(this.time7Label, 0, 7);
+            this.timetableLayoutPanel.Controls.Add(this.time8Label, 0, 8);
             this.timetableLayoutPanel.Location = new System.Drawing.Point(204, 39);
             this.timetableLayoutPanel.Name = "timetableLayoutPanel";
             this.timetableLayoutPanel.RowCount = 9;
@@ -147,169 +147,171 @@
             this.fridayLabel.TabIndex = 4;
             this.fridayLabel.Text = "PE";
             // 
-            // label1
+            // time1Label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "8:15";
+            this.time1Label.AutoSize = true;
+            this.time1Label.Location = new System.Drawing.Point(4, 44);
+            this.time1Label.Name = "time1Label";
+            this.time1Label.Size = new System.Drawing.Size(28, 13);
+            this.time1Label.TabIndex = 5;
+            this.time1Label.Text = "8:15";
             // 
-            // label2
+            // time2Label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "9:15";
+            this.time2Label.AutoSize = true;
+            this.time2Label.Location = new System.Drawing.Point(4, 87);
+            this.time2Label.Name = "time2Label";
+            this.time2Label.Size = new System.Drawing.Size(28, 13);
+            this.time2Label.TabIndex = 6;
+            this.time2Label.Text = "9:15";
             // 
-            // label3
+            // time3Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 130);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "10:15";
+            this.time3Label.AutoSize = true;
+            this.time3Label.Location = new System.Drawing.Point(4, 130);
+            this.time3Label.Name = "time3Label";
+            this.time3Label.Size = new System.Drawing.Size(34, 13);
+            this.time3Label.TabIndex = 7;
+            this.time3Label.Text = "10:15";
             // 
-            // label4
+            // time4Llabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 173);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "11:15";
+            this.time4Llabel.AutoSize = true;
+            this.time4Llabel.Location = new System.Drawing.Point(4, 173);
+            this.time4Llabel.Name = "time4Llabel";
+            this.time4Llabel.Size = new System.Drawing.Size(34, 13);
+            this.time4Llabel.TabIndex = 8;
+            this.time4Llabel.Text = "11:15";
             // 
-            // label5
+            // time5Label
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 216);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "12:15";
+            this.time5Label.AutoSize = true;
+            this.time5Label.Location = new System.Drawing.Point(4, 216);
+            this.time5Label.Name = "time5Label";
+            this.time5Label.Size = new System.Drawing.Size(34, 13);
+            this.time5Label.TabIndex = 9;
+            this.time5Label.Text = "12:15";
             // 
-            // label6
+            // time6Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 259);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "13:15";
+            this.time6Label.AutoSize = true;
+            this.time6Label.Location = new System.Drawing.Point(4, 259);
+            this.time6Label.Name = "time6Label";
+            this.time6Label.Size = new System.Drawing.Size(34, 13);
+            this.time6Label.TabIndex = 10;
+            this.time6Label.Text = "13:15";
             // 
-            // label7
+            // time7Label
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 302);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "14:15";
+            this.time7Label.AutoSize = true;
+            this.time7Label.Location = new System.Drawing.Point(4, 302);
+            this.time7Label.Name = "time7Label";
+            this.time7Label.Size = new System.Drawing.Size(34, 13);
+            this.time7Label.TabIndex = 11;
+            this.time7Label.Text = "14:15";
             // 
-            // label8
+            // time8Label
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 345);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "15:15";
+            this.time8Label.AutoSize = true;
+            this.time8Label.Location = new System.Drawing.Point(4, 345);
+            this.time8Label.Name = "time8Label";
+            this.time8Label.Size = new System.Drawing.Size(34, 13);
+            this.time8Label.TabIndex = 12;
+            this.time8Label.Text = "15:15";
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tiedostoToolStripMenuItem});
+            this.FileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(739, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // tiedostoToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.tiedostoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uusiToolStripMenuItem,
-            this.avaaToolStripMenuItem,
-            this.tallennaToolStripMenuItem,
-            this.tulostaToolStripMenuItem,
-            this.poistuToolStripMenuItem});
-            this.tiedostoToolStripMenuItem.Name = "tiedostoToolStripMenuItem";
-            this.tiedostoToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.tiedostoToolStripMenuItem.Text = "Tiedosto";
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.printToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.FileToolStripMenuItem.Text = "Tiedosto";
             // 
-            // uusiToolStripMenuItem
+            // NewToolStripMenuItem
             // 
-            this.uusiToolStripMenuItem.Name = "uusiToolStripMenuItem";
-            this.uusiToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.uusiToolStripMenuItem.Text = "Uusi";
+            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
+            this.NewToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.NewToolStripMenuItem.Text = "Uusi";
             // 
-            // avaaToolStripMenuItem
+            // openToolStripMenuItem
             // 
-            this.avaaToolStripMenuItem.Name = "avaaToolStripMenuItem";
-            this.avaaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.avaaToolStripMenuItem.Text = "Avaa";
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.openToolStripMenuItem.Text = "Avaa";
             // 
-            // tallennaToolStripMenuItem
+            // saveToolStripMenuItem
             // 
-            this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.tallennaToolStripMenuItem.Text = "Tallenna";
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.saveToolStripMenuItem.Text = "Tallenna";
             // 
-            // tulostaToolStripMenuItem
+            // printToolStripMenuItem
             // 
-            this.tulostaToolStripMenuItem.Name = "tulostaToolStripMenuItem";
-            this.tulostaToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.tulostaToolStripMenuItem.Text = "Tulosta";
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.printToolStripMenuItem.Text = "Tulosta";
             // 
-            // poistuToolStripMenuItem
+            // exitToolStripMenuItem
             // 
-            this.poistuToolStripMenuItem.Name = "poistuToolStripMenuItem";
-            this.poistuToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.poistuToolStripMenuItem.Text = "Poistu";
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.exitToolStripMenuItem.Text = "Poistu";
             // 
             // courseManagerPanel
             // 
             this.courseManagerPanel.ColumnCount = 1;
             this.courseManagerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.courseManagerPanel.Controls.Add(this.addCourseButton, 0, 0);
-            this.courseManagerPanel.Controls.Add(this.splitContainer1, 0, 1);
+            this.courseManagerPanel.Controls.Add(this.courseManagerSplitContainer, 0, 1);
             this.courseManagerPanel.Location = new System.Drawing.Point(0, 40);
+            this.courseManagerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.courseManagerPanel.Name = "courseManagerPanel";
             this.courseManagerPanel.RowCount = 2;
-            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.33333F));
-            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.courseManagerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.88889F));
             this.courseManagerPanel.Size = new System.Drawing.Size(200, 391);
             this.courseManagerPanel.TabIndex = 2;
             // 
             // addCourseButton
             // 
             this.addCourseButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addCourseButton.Location = new System.Drawing.Point(3, 3);
+            this.addCourseButton.Location = new System.Drawing.Point(5, 5);
+            this.addCourseButton.Margin = new System.Windows.Forms.Padding(5);
             this.addCourseButton.Name = "addCourseButton";
-            this.addCourseButton.Size = new System.Drawing.Size(194, 59);
+            this.addCourseButton.Size = new System.Drawing.Size(190, 33);
             this.addCourseButton.TabIndex = 0;
             this.addCourseButton.Text = "Lisää kurssi";
             this.addCourseButton.UseVisualStyleBackColor = true;
             this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
-            // splitContainer1
+            // courseManagerSplitContainer
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 68);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.courseManagerSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.courseManagerSplitContainer.Location = new System.Drawing.Point(0, 43);
+            this.courseManagerSplitContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.courseManagerSplitContainer.Name = "courseManagerSplitContainer";
+            this.courseManagerSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // courseManagerSplitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.coursesListBox);
-            this.splitContainer1.Size = new System.Drawing.Size(194, 320);
-            this.splitContainer1.SplitterDistance = 163;
-            this.splitContainer1.TabIndex = 2;
+            this.courseManagerSplitContainer.Panel1.Controls.Add(this.coursesListBox);
+            this.courseManagerSplitContainer.Size = new System.Drawing.Size(200, 348);
+            this.courseManagerSplitContainer.SplitterDistance = 177;
+            this.courseManagerSplitContainer.TabIndex = 2;
             // 
             // coursesListBox
             // 
@@ -320,7 +322,7 @@
             this.coursesListBox.Location = new System.Drawing.Point(0, 0);
             this.coursesListBox.MultiColumn = true;
             this.coursesListBox.Name = "coursesListBox";
-            this.coursesListBox.Size = new System.Drawing.Size(194, 163);
+            this.coursesListBox.Size = new System.Drawing.Size(200, 177);
             this.coursesListBox.TabIndex = 1;
             this.coursesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.coursesListBox_MouseDown);
             // 
@@ -340,9 +342,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.courseManagerPanel.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.courseManagerSplitContainer.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.courseManagerSplitContainer)).EndInit();
+            this.courseManagerSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,25 +358,25 @@
         private System.Windows.Forms.Label wednesdayLabel;
         private System.Windows.Forms.Label thursdayLabel;
         private System.Windows.Forms.Label fridayLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label time1Label;
+        private System.Windows.Forms.Label time2Label;
+        private System.Windows.Forms.Label time3Label;
+        private System.Windows.Forms.Label time4Llabel;
+        private System.Windows.Forms.Label time5Label;
+        private System.Windows.Forms.Label time6Label;
+        private System.Windows.Forms.Label time7Label;
+        private System.Windows.Forms.Label time8Label;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tiedostoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uusiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem avaaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tulostaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poistuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel courseManagerPanel;
         private System.Windows.Forms.Button addCourseButton;
         private System.Windows.Forms.ListBox coursesListBox;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer courseManagerSplitContainer;
     }
 }
 
