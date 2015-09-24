@@ -47,8 +47,11 @@ namespace Timetable
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if(this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
-                this.coursesListBox.DoDragDrop(courseList[this.coursesListBox.SelectedIndex], DragDropEffects.Move);
+            if (this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
+            {
+                Lesson lesson = new Lesson(courseList[this.coursesListBox.SelectedIndex]);
+                this.coursesListBox.DoDragDrop(lesson, DragDropEffects.Move);
+            }
         }
 
         private void timetableLayoutPanel_DragEnter(object sender, DragEventArgs e)
@@ -92,9 +95,12 @@ namespace Timetable
 
                 if (cellTaken == false)
                 {
-                    Course course = (Course)e.Data.GetData(typeof(Course));
-                    Lesson lesson = new Lesson(course, cellX, cellY, Settings.DefaultRowSpan);
-                    course.AddLesson(lesson);
+                    Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
+                    lesson.CellX = cellX;
+                    lesson.CellY = cellY;
+                    lesson.RowSpan = Settings.DefaultRowSpan;
+
+                    lesson.Course.AddLesson(lesson);
                     this.timetableLayoutPanel.Controls.Add(lesson.CellControl, cellX, cellY);
                     this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
                 }

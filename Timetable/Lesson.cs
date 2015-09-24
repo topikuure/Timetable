@@ -10,6 +10,17 @@ namespace Timetable
     public class Lesson
     {
         private Course course;
+        public Course Course
+        {
+            get
+            {
+                return course;
+            }
+            private set
+            {
+                course = value;
+            }
+        }
         private Label nameLabel = new Label();
         private TextBox classroomTextBox = new TextBox();
 
@@ -29,32 +40,36 @@ namespace Timetable
         public int CellY { get; set; }
         public int RowSpan { get; set; }
 
-        public Lesson(Course course, int cellX, int cellY, int rowSpan)
+        public Lesson(Course course)
         {
-            this.course = course;
-            this.CellX = cellX;
-            this.CellY = cellY;
-            this.RowSpan = rowSpan;
-            
-            nameLabel.Text = course.Name;
-            nameLabel.ForeColor = course.NameColor;
-            nameLabel.BackColor = course.BackColor;
-            nameLabel.Margin = new Padding(0);
+            this.Course = course;
 
-            classroomTextBox.MaxLength = 11;//Vai pitkillä sanoilla perään ... ?
-            classroomTextBox.BorderStyle = BorderStyle.None;
-            classroomTextBox.ForeColor = course.ClassroomColor;
-            classroomTextBox.BackColor = course.BackColor;
-            classroomTextBox.Margin = new Padding(3, 0, 0, 0);
-            classroomTextBox.LostFocus += new EventHandler(this.classroomTextBox_LostFocus);
+            this.nameLabel.Text = course.Name;
+            this.nameLabel.ForeColor = course.NameColor;
+            this.nameLabel.BackColor = course.BackColor;
+            this.nameLabel.Margin = new Padding(0);
 
-            CellControl.BackColor = course.BackColor;
-            CellControl.Margin = new Padding(0);
-            CellControl.Padding = new Padding(4);
-            CellControl.FlowDirection = FlowDirection.TopDown;
-            CellControl.Controls.Add(nameLabel);
-            CellControl.Controls.Add(classroomTextBox);
+            this.classroomTextBox.MaxLength = 11;//Vai pitkillä sanoilla perään ... ?
+            this.classroomTextBox.BorderStyle = BorderStyle.None;
+            this.classroomTextBox.ForeColor = course.ClassroomColor;
+            this.classroomTextBox.BackColor = course.BackColor;
+            this.classroomTextBox.Margin = new Padding(3, 0, 0, 0);
+            this.classroomTextBox.LostFocus += new EventHandler(this.classroomTextBox_LostFocus);
+
+            this.CellControl.BackColor = course.BackColor;
+            this.CellControl.Margin = new Padding(0);
+            this.CellControl.Padding = new Padding(4);
+            this.CellControl.FlowDirection = FlowDirection.TopDown;
+            this.CellControl.MouseDown += CellControl_MouseDown;
+            this.CellControl.Controls.Add(nameLabel);
+            this.CellControl.Controls.Add(classroomTextBox);
         }
+
+        private void CellControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.CellControl.DoDragDrop(this, DragDropEffects.Move);
+        }
+
         private void classroomTextBox_LostFocus(object sender, EventArgs e)
         {
             //Kysy käyttäjältä muutetaanko kaikkien kurssin tuntien luokat
