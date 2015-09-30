@@ -24,5 +24,9 @@ namespace Timetable
         {
             lessonList.Add(lesson);
         }
+        public void removeLesson(Lesson lesson)
+        {
+            lessonList.Remove(lesson);
+        }
     }
 }

@@ -98,7 +98,6 @@ namespace Timetable
                     Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
                     lesson.CellX = cellX;
                     lesson.CellY = cellY;
-                    lesson.RowSpan = Settings.DefaultRowSpan;
 
                     lesson.Course.AddLesson(lesson);
                     this.timetableLayoutPanel.Controls.Add(lesson.CellControl, cellX, cellY);

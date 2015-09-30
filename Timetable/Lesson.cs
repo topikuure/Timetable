@@ -38,7 +38,7 @@ namespace Timetable
         public FlowLayoutPanel CellControl { get; private set; } = new FlowLayoutPanel();
         public int CellX { get; set; }
         public int CellY { get; set; }
-        public int RowSpan { get; set; }
+        public int RowSpan { get; set; } = Settings.DefaultRowSpan;
 
         public Lesson(Course course)
         {
@@ -67,12 +67,26 @@ namespace Timetable
 
         private void CellControl_MouseDown(object sender, MouseEventArgs e)
         {
+            this.course.removeLesson(this);
             this.CellControl.DoDragDrop(this, DragDropEffects.Move);
         }
 
         private void classroomTextBox_LostFocus(object sender, EventArgs e)
         {
             //Kysy käyttäjältä muutetaanko kaikkien kurssin tuntien luokat
+        }
+
+        public void Select(bool value)
+        {
+            switch(value)
+            {
+                case false:
+                    this.CellControl.BorderStyle = BorderStyle.None;
+                    break;
+                case true:
+                    this.CellControl.BorderStyle = BorderStyle.FixedSingle;
+                    break;
+            }
         }
     }
 }
