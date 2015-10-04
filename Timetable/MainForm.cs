@@ -49,7 +49,7 @@ namespace Timetable
         {
             if (this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
             {
-                Lesson lesson = new Lesson(courseList[this.coursesListBox.SelectedIndex]);
+                Lesson lesson = new Lesson(courseList[this.coursesListBox.SelectedIndex], this.timetableLayoutPanel);
                 this.coursesListBox.DoDragDrop(lesson, DragDropEffects.Move);
             }
         }

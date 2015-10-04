@@ -9,6 +9,7 @@ namespace Timetable
 {
     public class Lesson
     {
+        private TableLayoutPanel tableLayoutPanel;
         private Course course;
         public Course Course
         {
@@ -40,9 +41,10 @@ namespace Timetable
         public int CellY { get; set; }
         public int RowSpan { get; set; } = Settings.DefaultRowSpan;
 
-        public Lesson(Course course)
+        public Lesson(Course course, TableLayoutPanel tableLayoutPanel)
         {
             this.Course = course;
+            this.tableLayoutPanel = tableLayoutPanel;
 
             this.nameLabel.Text = course.Name;
             this.nameLabel.ForeColor = course.NameColor;
@@ -57,17 +59,39 @@ namespace Timetable
             this.classroomTextBox.LostFocus += new EventHandler(this.classroomTextBox_LostFocus);
 
             this.CellControl.BackColor = course.BackColor;
+            this.CellControl.Dock = DockStyle.Fill;
             this.CellControl.Margin = new Padding(0);
             this.CellControl.Padding = new Padding(4);
             this.CellControl.FlowDirection = FlowDirection.TopDown;
             this.CellControl.MouseDown += CellControl_MouseDown;
+            this.CellControl.MouseWheel += CellControl_MouseWheel;
             this.CellControl.Controls.Add(nameLabel);
             this.CellControl.Controls.Add(classroomTextBox);
         }
 
+        private void CellControl_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta >= 120)
+            {
+                if (this.RowSpan > 1)
+                {
+                    --this.RowSpan;
+                    this.tableLayoutPanel.SetRowSpan(this.CellControl, this.RowSpan);
+                }
+            }
+            else if(e.Delta <= 120)
+            {
+                if (this.CellY + this.RowSpan < this.tableLayoutPanel.RowCount)
+                {
+                    ++this.RowSpan;
+                    this.tableLayoutPanel.SetRowSpan(this.CellControl, this.RowSpan);
+                }
+            }
+        }
+
         private void CellControl_MouseDown(object sender, MouseEventArgs e)
         {
-            this.course.removeLesson(this);
+            this.course.RemoveLesson(this);
             this.CellControl.DoDragDrop(this, DragDropEffects.Move);
         }
 
