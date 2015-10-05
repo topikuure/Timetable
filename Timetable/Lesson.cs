@@ -51,20 +51,23 @@ namespace Timetable
             this.nameLabel.BackColor = course.BackColor;
             this.nameLabel.Margin = new Padding(0);
 
-            this.classroomTextBox.MaxLength = 11;//Vai pitkillä sanoilla perään ... ?
+            this.classroomTextBox.MaxLength = 11;
             this.classroomTextBox.BorderStyle = BorderStyle.None;
             this.classroomTextBox.ForeColor = course.ClassroomColor;
             this.classroomTextBox.BackColor = course.BackColor;
             this.classroomTextBox.Margin = new Padding(3, 0, 0, 0);
             this.classroomTextBox.LostFocus += new EventHandler(this.classroomTextBox_LostFocus);
 
-            this.CellControl.BackColor = course.BackColor;
-            this.CellControl.Dock = DockStyle.Fill;
-            this.CellControl.Margin = new Padding(0);
-            this.CellControl.Padding = new Padding(4);
+            this.CellControl.WrapContents = false;
             this.CellControl.FlowDirection = FlowDirection.TopDown;
+            this.CellControl.Dock = DockStyle.Fill;
+            this.CellControl.BackColor = course.BackColor;
+            this.CellControl.Margin = new Padding(0);
+            this.CellControl.Padding = new Padding(0);
+
             this.CellControl.MouseDown += CellControl_MouseDown;
             this.CellControl.MouseWheel += CellControl_MouseWheel;
+
             this.CellControl.Controls.Add(nameLabel);
             this.CellControl.Controls.Add(classroomTextBox);
         }
