@@ -51,6 +51,8 @@ namespace Timetable
             this.nameLabel.BackColor = course.BackColor;
             this.nameLabel.Margin = new Padding(0);
 
+            this.nameLabel.MouseDown += NameLabel_MouseDown;
+
             this.classroomTextBox.MaxLength = 11;
             this.classroomTextBox.BorderStyle = BorderStyle.None;
             this.classroomTextBox.ForeColor = course.ClassroomColor;
@@ -70,6 +72,11 @@ namespace Timetable
 
             this.CellControl.Controls.Add(nameLabel);
             this.CellControl.Controls.Add(classroomTextBox);
+        }
+
+        private void NameLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.CellControl_MouseDown(sender, e);
         }
 
         private void CellControl_MouseWheel(object sender, MouseEventArgs e)
