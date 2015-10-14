@@ -37,7 +37,7 @@
             this.time1Label = new System.Windows.Forms.Label();
             this.time2Label = new System.Windows.Forms.Label();
             this.time3Label = new System.Windows.Forms.Label();
-            this.time4Llabel = new System.Windows.Forms.Label();
+            this.time4Label = new System.Windows.Forms.Label();
             this.time5Label = new System.Windows.Forms.Label();
             this.time6Label = new System.Windows.Forms.Label();
             this.time7Label = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.timetableLayoutPanel.Controls.Add(this.time1Label, 0, 1);
             this.timetableLayoutPanel.Controls.Add(this.time2Label, 0, 2);
             this.timetableLayoutPanel.Controls.Add(this.time3Label, 0, 3);
-            this.timetableLayoutPanel.Controls.Add(this.time4Llabel, 0, 4);
+            this.timetableLayoutPanel.Controls.Add(this.time4Label, 0, 4);
             this.timetableLayoutPanel.Controls.Add(this.time5Label, 0, 5);
             this.timetableLayoutPanel.Controls.Add(this.time6Label, 0, 6);
             this.timetableLayoutPanel.Controls.Add(this.time7Label, 0, 7);
@@ -170,14 +170,14 @@
             this.time3Label.TabIndex = 7;
             this.time3Label.Text = "10:15";
             // 
-            // time4Llabel
+            // time4Label
             // 
-            this.time4Llabel.AutoSize = true;
-            this.time4Llabel.Location = new System.Drawing.Point(4, 173);
-            this.time4Llabel.Name = "time4Llabel";
-            this.time4Llabel.Size = new System.Drawing.Size(34, 13);
-            this.time4Llabel.TabIndex = 8;
-            this.time4Llabel.Text = "11:15";
+            this.time4Label.AutoSize = true;
+            this.time4Label.Location = new System.Drawing.Point(4, 173);
+            this.time4Label.Name = "time4Label";
+            this.time4Label.Size = new System.Drawing.Size(34, 13);
+            this.time4Label.TabIndex = 8;
+            this.time4Label.Text = "11:15";
             // 
             // time5Label
             // 
@@ -240,32 +240,32 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.newToolStripMenuItem.Text = "Uusi";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.openToolStripMenuItem.Text = "Avaa";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.saveToolStripMenuItem.Text = "Tallenna";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.printToolStripMenuItem.Text = "Tulosta";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.exitToolStripMenuItem.Text = "Poistu";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -342,7 +342,7 @@
         private System.Windows.Forms.Label time1Label;
         private System.Windows.Forms.Label time2Label;
         private System.Windows.Forms.Label time3Label;
-        private System.Windows.Forms.Label time4Llabel;
+        private System.Windows.Forms.Label time4Label;
         private System.Windows.Forms.Label time5Label;
         private System.Windows.Forms.Label time6Label;
         private System.Windows.Forms.Label time7Label;

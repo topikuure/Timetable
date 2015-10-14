@@ -16,17 +16,15 @@ namespace Timetable
         private ContextMenuStrip courseContextMenuStrip = new ContextMenuStrip();
         private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Poista");
 
-        public static int TimeTableRowCount { get; set; }
-        public static int TimeTableColumnCount { get; set; }
-
-        public List<Course> courseList = new List<Course>();
+        private List<Course> courseList = new List<Course>();
 
         public MainForm()
         {
             InitializeComponent();
 
-            TimeTableRowCount = this.timetableLayoutPanel.RowCount;
-            TimeTableColumnCount = this.timetableLayoutPanel.ColumnCount;
+            this.timetableLayoutPanel.BackColor = Settings.TimeTableBackColor;
+            this.ChangeDayLabelColor(Settings.DayLabelColor);
+            this.ChangeTimeLabelColor(Settings.TimeLabelColor);
 
             this.courseContextMenuStrip.Items.Add(removeToolStripMenuItem);
 
@@ -36,6 +34,26 @@ namespace Timetable
             coursesListBox.Items.Add(course.Name);
         }
 
+        public void ChangeDayLabelColor(Color color)
+        {
+            this.mondayLabel.ForeColor = color;
+            this.tuesdayLabel.ForeColor = color;
+            this.wednesdayLabel.ForeColor = color;
+            this.thursdayLabel.ForeColor = color;
+            this.fridayLabel.ForeColor = color;
+        }
+
+        public void ChangeTimeLabelColor(Color color)
+        {
+            this.time1Label.ForeColor = color;
+            this.time2Label.ForeColor = color;
+            this.time3Label.ForeColor = color;
+            this.time4Label.ForeColor = color;
+            this.time5Label.ForeColor = color;
+            this.time6Label.ForeColor = color;
+            this.time7Label.ForeColor = color;
+            this.time8Label.ForeColor = color;
+        }
         private void addCourseButton_Click(object sender, EventArgs e)
         {
             AddCourseForm addCourseForm = new AddCourseForm();
@@ -62,7 +80,7 @@ namespace Timetable
             }
             else if(e.Button == MouseButtons.Right)
             {
-                //EI TOIMI. Ei myöskään PointToScreen
+                //EI TOIMI. Ei myöskään PointToScreen(e.X, eY)
                 //this.courseContextMenuStrip.Show(e.X, e.Y);
             }
         }
