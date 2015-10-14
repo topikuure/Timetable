@@ -48,10 +48,17 @@ namespace Timetable
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
+            if (e.Button == MouseButtons.Left)
             {
-                Lesson lesson = new Lesson(courseList[this.coursesListBox.SelectedIndex], this.timetableLayoutPanel);
-                this.coursesListBox.DoDragDrop(lesson, DragDropEffects.Move);
+                if (this.coursesListBox.Items.Count > 0 && this.coursesListBox.SelectedItem != null)
+                {
+                    Lesson lesson = new Lesson(courseList[this.coursesListBox.SelectedIndex], this.timetableLayoutPanel);
+                    this.coursesListBox.DoDragDrop(lesson, DragDropEffects.Move);
+                }
+            }
+            else if(e.Button == MouseButtons.Right)
+            {
+                //contextMenuStrip.Show() -- Remove Course
             }
         }
 
@@ -138,6 +145,11 @@ namespace Timetable
             scaledWidth = scaleFactor * this.timetableLayoutPanel.Width;
 
             e.Graphics.DrawImage((Image)bitmap, new RectangleF(0, 0, scaledWidth, scaledHeight));
+        }
+
+        private void RemoveLessonMenuItem_Click(object sender, EventArgs e)
+        {
+           //asd
         }
     }
 }

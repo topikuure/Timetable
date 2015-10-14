@@ -42,9 +42,9 @@
             this.time6Label = new System.Windows.Forms.Label();
             this.time7Label = new System.Windows.Forms.Label();
             this.time8Label = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +53,7 @@
             this.addCourseButton = new System.Windows.Forms.Button();
             this.coursesListBox = new System.Windows.Forms.ListBox();
             this.timetableLayoutPanel.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,20 +215,20 @@
             this.time8Label.TabIndex = 12;
             this.time8Label.Text = "15:15";
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip.TabIndex = 1;
+            this.menuStrip.Text = "menuStrip";
             // 
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewToolStripMenuItem,
+            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.printToolStripMenuItem,
@@ -237,11 +237,11 @@
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.FileToolStripMenuItem.Text = "Tiedosto";
             // 
-            // NewToolStripMenuItem
+            // newToolStripMenuItem
             // 
-            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
-            this.NewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.NewToolStripMenuItem.Text = "Uusi";
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "Uusi";
             // 
             // openToolStripMenuItem
             // 
@@ -317,14 +317,14 @@
             this.ClientSize = new System.Drawing.Size(739, 443);
             this.Controls.Add(this.courseManagerPanel);
             this.Controls.Add(this.timetableLayoutPanel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.Text = "Lukujärjestys";
             this.timetableLayoutPanel.ResumeLayout(false);
             this.timetableLayoutPanel.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.courseManagerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -347,9 +347,9 @@
         private System.Windows.Forms.Label time6Label;
         private System.Windows.Forms.Label time7Label;
         private System.Windows.Forms.Label time8Label;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;

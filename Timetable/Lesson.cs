@@ -9,6 +9,8 @@ namespace Timetable
 {
     public class Lesson
     {
+        private ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+        private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Poista");
         private TableLayoutPanel tableLayoutPanel;
         private Course course;
         public Course Course
@@ -72,6 +74,19 @@ namespace Timetable
 
             this.CellControl.Controls.Add(nameLabel);
             this.CellControl.Controls.Add(classroomTextBox);
+
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.contextMenuStrip.Items.Add(this.removeToolStripMenuItem);
+
+            this.removeToolStripMenuItem.MouseDown += RemoveToolStripMenuItem_MouseDown;
+            this.CellControl.ContextMenuStrip = this.contextMenuStrip;
+        }
+
+        private void RemoveToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.course.RemoveLesson(this);
+            this.tableLayoutPanel.Controls.Remove(this.CellControl);
         }
 
         private void CellControl_MouseWheel(object sender, MouseEventArgs e)
@@ -96,8 +111,15 @@ namespace Timetable
 
         private void CellControl_MouseDown(object sender, MouseEventArgs e)
         {
-            this.course.RemoveLesson(this);
-            this.CellControl.DoDragDrop(this, DragDropEffects.Move);
+            if (e.Button == MouseButtons.Left)
+            {
+                this.course.RemoveLesson(this);
+                this.CellControl.DoDragDrop(this, DragDropEffects.Move);
+            }
+            else if(e.Button == MouseButtons.Right)
+            {
+                this.contextMenuStrip.Show(e.X, e.Y);
+            }
         }
 
         private void NameLabel_MouseDown(object sender, MouseEventArgs e)
