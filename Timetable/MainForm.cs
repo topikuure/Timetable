@@ -88,16 +88,15 @@ namespace Timetable
                     }
                 }
                 bool cellTaken = false;
+                Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
 
                 if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
                     cellTaken = true;
-                //defaultrowspannin tilalle lesson.rowspan.
-                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + (Settings.DefaultRowSpan - 1)) != null)
+                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY +  (lesson.RowSpan - 1)) != null)
                     cellTaken = true;
 
                 if (cellTaken == false)
                 {
-                    Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
                     lesson.CellX = cellX;
                     lesson.CellY = cellY;
 
@@ -133,7 +132,6 @@ namespace Timetable
             Bitmap bitmap = new Bitmap(this.timetableLayoutPanel.Size.Width, this.timetableLayoutPanel.Size.Height);
             this.timetableLayoutPanel.DrawToBitmap(bitmap, this.timetableLayoutPanel.ClientRectangle);
 
-            //EI TOIMI
             float scaleFactor, scaledWidth, scaledHeight;
             scaleFactor = e.Graphics.VisibleClipBounds.Size.Width / this.timetableLayoutPanel.Width;
             scaledHeight = scaleFactor * this.timetableLayoutPanel.Height;
