@@ -74,11 +74,6 @@ namespace Timetable
             this.CellControl.Controls.Add(classroomTextBox);
         }
 
-        private void NameLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.CellControl_MouseDown(sender, e);
-        }
-
         private void CellControl_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta >= 120)
@@ -103,6 +98,11 @@ namespace Timetable
         {
             this.course.RemoveLesson(this);
             this.CellControl.DoDragDrop(this, DragDropEffects.Move);
+        }
+
+        private void NameLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.CellControl_MouseDown(sender, e);
         }
 
         private void classroomTextBox_LostFocus(object sender, EventArgs e)

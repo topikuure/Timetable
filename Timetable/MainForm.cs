@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace Timetable
 {
@@ -90,6 +91,7 @@ namespace Timetable
 
                 if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
                     cellTaken = true;
+                //defaultrowspannin tilalle lesson.rowspan.
                 else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + (Settings.DefaultRowSpan - 1)) != null)
                     cellTaken = true;
 
@@ -104,6 +106,40 @@ namespace Timetable
                     this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
                 }
             }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            PrintDialog dialog = new PrintDialog();
+            dialog.PrinterSettings = printDocument.PrinterSettings;
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+            dialog.Dispose();
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Bitmap bitmap = new Bitmap(this.timetableLayoutPanel.Size.Width, this.timetableLayoutPanel.Size.Height);
+            this.timetableLayoutPanel.DrawToBitmap(bitmap, this.timetableLayoutPanel.ClientRectangle);
+
+            //EI TOIMI
+            float scaleFactor, scaledWidth, scaledHeight;
+            scaleFactor = e.Graphics.VisibleClipBounds.Size.Width / this.timetableLayoutPanel.Width;
+            scaledHeight = scaleFactor * this.timetableLayoutPanel.Height;
+            scaledWidth = scaleFactor * this.timetableLayoutPanel.Width;
+
+            e.Graphics.DrawImage((Image)bitmap, new RectangleF(0, 0, scaledWidth, scaledHeight));
         }
     }
 }
