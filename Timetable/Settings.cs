@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Timetable
 {
-    class Settings
+    static class Settings
     {
-        public static int DefaultRowSpan { get; set; } = 2;
+        public static Color TimeTableBackColor { get; set; } = Color.White;
+        public static Color LessonBackColor { get; set; } = Color.White;
+        public static Color LessonNameColor { get; set; } = Color.Black;
+        public static Color LessonClassroomColor { get; set; } = Color.Red;
+
+        public static int RowSpan { get; set; } = 2;
     }
 }

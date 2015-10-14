@@ -13,6 +13,9 @@ namespace Timetable
 {
     public partial class MainForm : Form
     {
+        private ContextMenuStrip courseContextMenuStrip = new ContextMenuStrip();
+        private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Poista");
+
         public static int TimeTableRowCount { get; set; }
         public static int TimeTableColumnCount { get; set; }
 
@@ -21,14 +24,14 @@ namespace Timetable
         public MainForm()
         {
             InitializeComponent();
+
             TimeTableRowCount = this.timetableLayoutPanel.RowCount;
             TimeTableColumnCount = this.timetableLayoutPanel.ColumnCount;
 
+            this.courseContextMenuStrip.Items.Add(removeToolStripMenuItem);
+
             //Testi
             Course course = new Course("Kurssi");
-            course.NameColor = Color.Black;
-            course.BackColor = Color.Khaki;
-            course.ClassroomColor = Color.IndianRed;
             courseList.Add(course);
             coursesListBox.Items.Add(course.Name);
         }
@@ -40,8 +43,9 @@ namespace Timetable
 
             if(addCourseForm.DialogResult == DialogResult.OK)
             {
-                courseList.Add(addCourseForm.course);
-                coursesListBox.Items.Add(addCourseForm.course.Name);
+                this.courseList.Add(addCourseForm.course);
+                this.coursesListBox.Items.Add(addCourseForm.course.Name);
+                
             }
             addCourseForm.Dispose();
         }
@@ -58,7 +62,8 @@ namespace Timetable
             }
             else if(e.Button == MouseButtons.Right)
             {
-                //contextMenuStrip.Show() -- Remove Course
+                //EI TOIMI. Ei myöskään PointToScreen
+                //this.courseContextMenuStrip.Show(e.X, e.Y);
             }
         }
 
