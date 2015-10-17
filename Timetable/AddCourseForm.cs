@@ -24,5 +24,10 @@ namespace Timetable
         {
             course = new Course(this.nameTextBox.Text);
         }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) this.AcceptButton.PerformClick();
+        }
     }
 }

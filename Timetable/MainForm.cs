@@ -98,6 +98,7 @@ namespace Timetable
             int rowHeight = this.timetableLayoutPanel.GetRowHeights()[1];
             Point tableLocation = this.timetableLayoutPanel.Location;
             Point mouse = this.timetableLayoutPanel.PointToClient(new Point(e.X, e.Y));
+            Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
 
             if (mouse.X > columnWidth && mouse.Y > rowHeight)
             {
@@ -109,7 +110,7 @@ namespace Timetable
                         break;
                     }
                 }
-                for (int i = 1; i <= this.timetableLayoutPanel.RowCount; ++i)
+                for (int i = 1; i <= this.timetableLayoutPanel.RowCount - (lesson.RowSpan - 1); ++i)
                 {
                     if (mouse.Y < i * rowHeight)
                     {
@@ -118,7 +119,6 @@ namespace Timetable
                     }
                 }
                 bool cellTaken = false;
-                Lesson lesson = (Lesson)e.Data.GetData(typeof(Lesson));
 
                 if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
                     cellTaken = true;
