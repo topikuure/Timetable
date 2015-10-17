@@ -87,8 +87,8 @@ namespace Timetable
 
         private void timetableLayoutPanel_DragEnter(object sender, DragEventArgs e)
         {
-            //Tarkista onko hyväksyttävä objekti
-            e.Effect = DragDropEffects.Move;
+            //Testaa väärällä tyypillä
+            if(e.Data.GetData(typeof(Lesson)).GetType() == typeof(Lesson)) e.Effect = DragDropEffects.Move;
         }
 
         private void timetableLayoutPanel_DragDrop(object sender, DragEventArgs e)

@@ -48,11 +48,11 @@ namespace Timetable
             this.Course = course;
             this.tableLayoutPanel = tableLayoutPanel;
 
+            this.nameLabel.AutoSize = true;
             this.nameLabel.Text = course.Name;
             this.nameLabel.ForeColor = course.NameColor;
             this.nameLabel.BackColor = course.BackColor;
             this.nameLabel.Margin = new Padding(0);
-
             this.nameLabel.MouseDown += NameLabel_MouseDown;
 
             this.classroomTextBox.MaxLength = 11;
@@ -68,7 +68,6 @@ namespace Timetable
             this.CellControl.BackColor = course.BackColor;
             this.CellControl.Margin = new Padding(0);
             this.CellControl.Padding = new Padding(0);
-
             this.CellControl.MouseDown += CellControl_MouseDown;
             this.CellControl.MouseWheel += CellControl_MouseWheel;
 
@@ -77,9 +76,9 @@ namespace Timetable
 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.CellControlContextMenuStrip.Items.Add(this.removeToolStripMenuItem);
-
             this.removeToolStripMenuItem.MouseDown += RemoveToolStripMenuItem_MouseDown;
+
+            this.CellControlContextMenuStrip.Items.Add(this.removeToolStripMenuItem);
             this.CellControl.ContextMenuStrip = this.CellControlContextMenuStrip;
         }
 

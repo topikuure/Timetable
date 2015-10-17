@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace Timetable
 {
+    //Luokkaan pitäisi lisätä save ja load -metodit, joilla asetukset voi tallentaa ja ladata tiedostosta.
     static class Settings
     {
         public static Color TimeTableBackColor { get; set; } = Color.White;
