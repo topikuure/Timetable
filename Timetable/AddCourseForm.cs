@@ -27,7 +27,7 @@ namespace Timetable
 
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter) this.AcceptButton.PerformClick();
+            //if (e.KeyChar == (char)Keys.Enter) this.AcceptButton.PerformClick();
         }
     }
 }

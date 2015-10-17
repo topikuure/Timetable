@@ -13,9 +13,6 @@ namespace Timetable
 {
     public partial class MainForm : Form
     {
-        private ContextMenuStrip courseContextMenuStrip = new ContextMenuStrip();
-        private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Poista");
-
         private List<Course> courseList = new List<Course>();
 
         public MainForm()
@@ -26,12 +23,25 @@ namespace Timetable
             this.ChangeDayLabelColor(Settings.DayLabelColor);
             this.ChangeTimeLabelColor(Settings.TimeLabelColor);
 
-            this.courseContextMenuStrip.Items.Add(removeToolStripMenuItem);
-
             //Testi
-            Course course = new Course("Kurssi");
-            courseList.Add(course);
-            coursesListBox.Items.Add(course.Name);
+            this.AddCourse(new Course("Kurssi"));
+        }
+
+        public void AddCourse(Course course)
+        {
+            this.courseList.Add(course);
+            this.coursesListBox.Items.Add(course.Name);
+        }
+
+        public void RemoveCourse(Course course)
+        {
+            for (int i = 0; i < course.LessonCount(); ++i)
+            {
+                this.timetableLayoutPanel.Controls.Remove(course.GetLesson(i).CellControl);
+            }
+
+            this.courseList.Remove(course);
+            this.coursesListBox.Items.Remove(course.Name);
         }
 
         public void ChangeDayLabelColor(Color color)
@@ -54,16 +64,30 @@ namespace Timetable
             this.time7Label.ForeColor = color;
             this.time8Label.ForeColor = color;
         }
+
         private void addCourseButton_Click(object sender, EventArgs e)
         {
             AddCourseForm addCourseForm = new AddCourseForm();
             addCourseForm.ShowDialog(this);
 
-            if(addCourseForm.DialogResult == DialogResult.OK)
+            if (addCourseForm.DialogResult == DialogResult.OK)
             {
-                this.courseList.Add(addCourseForm.course);
-                this.coursesListBox.Items.Add(addCourseForm.course.Name);
-                
+                bool permissionToAddCourse = true;
+
+                for (int i = 0; i < this.courseList.Count; ++i)
+                {
+                    if (this.courseList[i].Name == addCourseForm.course.Name)
+                    {
+                        MessageBox.Show("Kurssi '" + addCourseForm.course.Name + "' on jo olemassa\r\n" + "Vaihda nimi");
+                        permissionToAddCourse = false;
+                        break;
+                    }
+                }
+                if (permissionToAddCourse == true)
+                {
+                    this.courseList.Add(addCourseForm.course);
+                    this.coursesListBox.Items.Add(addCourseForm.course.Name);
+                }
             }
             addCourseForm.Dispose();
         }
@@ -80,8 +104,8 @@ namespace Timetable
             }
             else if(e.Button == MouseButtons.Right)
             {
-                //EI TOIMI. Ei myöskään PointToScreen(e.X, eY)
-                //this.courseContextMenuStrip.Show(e.X, e.Y);
+                //Testaa onko hiiren alla valittu kurssi
+                this.coursesListBox.ContextMenuStrip.Show(this.coursesListBox.PointToScreen(new Point(e.X, e.Y)));
             }
         }
 
@@ -170,9 +194,16 @@ namespace Timetable
             e.Graphics.DrawImage((Image)bitmap, new RectangleF(0, 0, scaledWidth, scaledHeight));
         }
 
-        private void RemoveLessonMenuItem_Click(object sender, EventArgs e)
+        private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           //asd
+            for (int i = 0; i < this.courseList.Count; ++i)
+            {
+                if (this.coursesListBox.SelectedItem != null)
+                {
+                    if (this.courseList[i].Name == this.coursesListBox.SelectedItem.ToString())
+                        this.RemoveCourse(this.courseList[i]);
+                }
+            }
         }
     }
 }

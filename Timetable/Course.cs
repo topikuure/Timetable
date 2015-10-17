@@ -22,11 +22,23 @@ namespace Timetable
         }
         public void AddLesson(Lesson lesson)
         {
-            lessonList.Add(lesson);
+            this.lessonList.Add(lesson);
         }
         public void RemoveLesson(Lesson lesson)
         {
-            lessonList.Remove(lesson);
+            this.lessonList.Remove(lesson);
+        }
+        public void ClearLessons()
+        {
+            this.lessonList.Clear();
+        }
+        public Lesson GetLesson(int index)
+        {
+            return this.lessonList[index];
+        }
+        public int LessonCount()
+        {
+            return this.lessonList.Count;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.timetableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.mondayLabel = new System.Windows.Forms.Label();
             this.tuesdayLabel = new System.Windows.Forms.Label();
@@ -52,9 +53,12 @@
             this.courseManagerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseButton = new System.Windows.Forms.Button();
             this.coursesListBox = new System.Windows.Forms.ListBox();
+            this.CourseContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.removeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableLayoutPanel.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.courseManagerPanel.SuspendLayout();
+            this.CourseContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // timetableLayoutPanel
@@ -299,6 +303,7 @@
             // 
             // coursesListBox
             // 
+            this.coursesListBox.ContextMenuStrip = this.CourseContextMenuStrip;
             this.coursesListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coursesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursesListBox.FormattingEnabled = true;
@@ -309,6 +314,20 @@
             this.coursesListBox.Size = new System.Drawing.Size(194, 342);
             this.coursesListBox.TabIndex = 1;
             this.coursesListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.coursesListBox_MouseDown);
+            // 
+            // CourseContextMenuStrip
+            // 
+            this.CourseContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeCourseToolStripMenuItem});
+            this.CourseContextMenuStrip.Name = "CourseContextMenuStrip";
+            this.CourseContextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // removeCourseToolStripMenuItem
+            // 
+            this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeCourseToolStripMenuItem.Text = "Poista";
+            this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -326,6 +345,7 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.courseManagerPanel.ResumeLayout(false);
+            this.CourseContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +377,8 @@
         private System.Windows.Forms.TableLayoutPanel courseManagerPanel;
         private System.Windows.Forms.Button addCourseButton;
         private System.Windows.Forms.ListBox coursesListBox;
+        private System.Windows.Forms.ContextMenuStrip CourseContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem removeCourseToolStripMenuItem;
     }
 }
 
