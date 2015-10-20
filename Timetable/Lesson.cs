@@ -102,8 +102,11 @@ namespace Timetable
             {
                 if (this.CellY + this.RowSpan < this.tableLayoutPanel.RowCount)
                 {
-                    ++this.RowSpan;
-                    this.tableLayoutPanel.SetRowSpan(this.CellControl, this.RowSpan);
+                    if (this.tableLayoutPanel.GetControlFromPosition(this.CellX, this.CellY + this.RowSpan) == null)
+                    {
+                        ++this.RowSpan;
+                        this.tableLayoutPanel.SetRowSpan(this.CellControl, this.RowSpan);
+                    }
                 }
             }
         }

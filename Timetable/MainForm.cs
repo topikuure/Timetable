@@ -44,6 +44,13 @@ namespace Timetable
             this.coursesListBox.Items.Remove(course.Name);
         }
 
+        public void AddLesson(Lesson lesson)
+        {
+            lesson.Course.AddLesson(lesson);
+            this.timetableLayoutPanel.Controls.Add(lesson.CellControl, lesson.CellX, lesson.CellY);
+            this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
+        }
+
         public void ChangeDayLabelColor(Color color)
         {
             this.mondayLabel.ForeColor = color;
@@ -78,10 +85,16 @@ namespace Timetable
                 {
                     if (this.courseList[i].Name == addCourseForm.course.Name)
                     {
-                        MessageBox.Show("Kurssi '" + addCourseForm.course.Name + "' on jo olemassa\r\n" + "Vaihda nimi");
+                        MessageBox.Show("Kurssi '" + addCourseForm.course.Name + "' on jo olemassa!");
                         permissionToAddCourse = false;
                         break;
                     }
+                }
+                //Ei tarkista onko nimi pelkkää whitespacea.
+                if(addCourseForm.course.Name.Length <= 0)
+                {
+                    MessageBox.Show("Anna kurssille nimi!");
+                    permissionToAddCourse = false;
                 }
                 if (permissionToAddCourse == true)
                 {
@@ -144,19 +157,25 @@ namespace Timetable
                 }
                 bool cellTaken = false;
 
-                if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
+                /*if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
                     cellTaken = true;
                 else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY +  (lesson.RowSpan - 1)) != null)
-                    cellTaken = true;
+                    cellTaken = true;*/
+
+                for(int i = 0; i < lesson.RowSpan; ++i)
+                {
+                    if(this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY + i) != null)
+                    {
+                        cellTaken = true;
+                        break;
+                    }
+                }
 
                 if (cellTaken == false)
                 {
                     lesson.CellX = cellX;
                     lesson.CellY = cellY;
-
-                    lesson.Course.AddLesson(lesson);
-                    this.timetableLayoutPanel.Controls.Add(lesson.CellControl, cellX, cellY);
-                    this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
+                    this.AddLesson(lesson);
                 }
             }
         }
