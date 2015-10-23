@@ -24,7 +24,8 @@ namespace Timetable
             this.ChangeTimeLabelColor(Settings.TimeLabelColor);
 
             //Testi
-            this.AddCourse(new Course("Kurssi"));
+            Course testCourse = new Course("Kurssi");
+            this.AddCourse(testCourse);
         }
 
         public void AddCourse(Course course)
@@ -47,8 +48,10 @@ namespace Timetable
         public void AddLesson(Lesson lesson)
         {
             lesson.Course.AddLesson(lesson);
+            this.timetableLayoutPanel.SuspendLayout();
             this.timetableLayoutPanel.Controls.Add(lesson.CellControl, lesson.CellX, lesson.CellY);
             this.timetableLayoutPanel.SetRowSpan(lesson.CellControl, lesson.RowSpan);
+            this.timetableLayoutPanel.ResumeLayout();
         }
 
         public void ChangeDayLabelColor(Color color)
@@ -156,11 +159,6 @@ namespace Timetable
                     }
                 }
                 bool cellTaken = false;
-
-                /*if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY) != null)
-                    cellTaken = true;
-                else if (this.timetableLayoutPanel.GetControlFromPosition(cellX, cellY +  (lesson.RowSpan - 1)) != null)
-                    cellTaken = true;*/
 
                 for(int i = 0; i < lesson.RowSpan; ++i)
                 {
