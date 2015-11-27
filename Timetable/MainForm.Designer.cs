@@ -238,39 +238,39 @@
             this.printToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.FileToolStripMenuItem.Text = "Tiedosto";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.FileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.newToolStripMenuItem.Text = "Uusi";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.openToolStripMenuItem.Text = "Avaa";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.saveToolStripMenuItem.Text = "Tallenna";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.printToolStripMenuItem.Text = "Tulosta";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.exitToolStripMenuItem.Text = "Poistu";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // courseManagerPanel
@@ -297,7 +297,7 @@
             this.addCourseButton.Name = "addCourseButton";
             this.addCourseButton.Size = new System.Drawing.Size(190, 33);
             this.addCourseButton.TabIndex = 0;
-            this.addCourseButton.Text = "Lisää kurssi";
+            this.addCourseButton.Text = "Add Course\r\n";
             this.addCourseButton.UseVisualStyleBackColor = true;
             this.addCourseButton.Click += new System.EventHandler(this.addCourseButton_Click);
             // 
@@ -320,12 +320,12 @@
             this.CourseContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.removeCourseToolStripMenuItem});
             this.CourseContextMenuStrip.Name = "CourseContextMenuStrip";
-            this.CourseContextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.CourseContextMenuStrip.Size = new System.Drawing.Size(107, 26);
             // 
             // removeCourseToolStripMenuItem
             // 
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.removeCourseToolStripMenuItem.Text = "Poista";
             this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
@@ -339,7 +339,7 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
-            this.Text = "Lukujärjestys";
+            this.Text = "Timetable";
             this.timetableLayoutPanel.ResumeLayout(false);
             this.timetableLayoutPanel.PerformLayout();
             this.menuStrip.ResumeLayout(false);

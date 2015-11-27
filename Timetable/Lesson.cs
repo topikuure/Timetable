@@ -52,7 +52,7 @@ namespace Timetable
             this.nameLabel.Text = course.Name;
             this.nameLabel.ForeColor = course.NameColor;
             this.nameLabel.BackColor = course.BackColor;
-            this.nameLabel.Margin = new Padding(0);
+            this.nameLabel.Margin = new Padding(2);
             this.nameLabel.MouseDown += NameLabel_MouseDown;
 
             this.classroomTextBox.MaxLength = 11;

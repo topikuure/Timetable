@@ -34,6 +34,7 @@ namespace Timetable
             this.coursesListBox.Items.Add(course.Name);
         }
 
+        //Ei toimi joskus randomisti: this.timetableLayoutPanel.Controls.Remove(course.GetLesson(i).CellControl)
         public void RemoveCourse(Course course)
         {
             for (int i = 0; i < course.LessonCount(); ++i)

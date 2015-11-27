@@ -17,7 +17,7 @@ namespace Timetable
 
         public static Color LessonBackColor { get; set; } = Color.White;
         public static Color LessonNameColor { get; set; } = Color.Black;
-        public static Color LessonClassroomColor { get; set; } = Color.Red;
+        public static Color LessonClassroomColor { get; set; } = Color.Black;
 
         public static int RowSpan { get; set; } = 2;
     }

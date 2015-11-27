@@ -39,9 +39,9 @@
             this.courseNameLabel.AutoSize = true;
             this.courseNameLabel.Location = new System.Drawing.Point(67, 22);
             this.courseNameLabel.Name = "courseNameLabel";
-            this.courseNameLabel.Size = new System.Drawing.Size(62, 13);
+            this.courseNameLabel.Size = new System.Drawing.Size(69, 13);
             this.courseNameLabel.TabIndex = 0;
-            this.courseNameLabel.Text = "Kurssin nimi";
+            this.courseNameLabel.Text = "Course name";
             this.courseNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // nameTextBox
@@ -59,7 +59,7 @@
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 1;
-            this.saveButton.Text = "Tallenna";
+            this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -70,7 +70,7 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "Peruuta";
+            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // AddCourseForm
@@ -83,7 +83,7 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.saveButton);
             this.Name = "AddCourseForm";
-            this.Text = "Lisää Kurssi";
+            this.Text = "Add Course";
             this.ResumeLayout(false);
             this.PerformLayout();
 
