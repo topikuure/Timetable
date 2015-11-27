@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Timetable
 {
+    /*
+    Lesson sisältää CellControl -GUI-elementin, jonka voi asettaa tableLayoutPanelin soluihin.
+    */
     public class Lesson
     {
         private ContextMenuStrip CellControlContextMenuStrip = new ContextMenuStrip();
@@ -55,6 +58,7 @@ namespace Timetable
             this.nameLabel.Margin = new Padding(2);
             this.nameLabel.MouseDown += NameLabel_MouseDown;
 
+            this.classroomTextBox.Text = course.DefaultClassroom;
             this.classroomTextBox.MaxLength = 11;
             this.classroomTextBox.BorderStyle = BorderStyle.None;
             this.classroomTextBox.ForeColor = course.ClassroomColor;

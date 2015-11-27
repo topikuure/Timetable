@@ -32,6 +32,8 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.defaultClassroomLabel = new System.Windows.Forms.Label();
+            this.defaultClassroomTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // courseNameLabel
@@ -55,7 +57,7 @@
             // saveButton
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveButton.Location = new System.Drawing.Point(151, 51);
+            this.saveButton.Location = new System.Drawing.Point(151, 79);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 1;
@@ -66,18 +68,37 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(54, 51);
+            this.cancelButton.Location = new System.Drawing.Point(54, 79);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // defaultClassroomLabel
+            // 
+            this.defaultClassroomLabel.AutoSize = true;
+            this.defaultClassroomLabel.Location = new System.Drawing.Point(45, 52);
+            this.defaultClassroomLabel.Name = "defaultClassroomLabel";
+            this.defaultClassroomLabel.Size = new System.Drawing.Size(91, 13);
+            this.defaultClassroomLabel.TabIndex = 7;
+            this.defaultClassroomLabel.Text = "Default classroom";
+            this.defaultClassroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // defaultClassroomTextBox
+            // 
+            this.defaultClassroomTextBox.Location = new System.Drawing.Point(135, 49);
+            this.defaultClassroomTextBox.Name = "defaultClassroomTextBox";
+            this.defaultClassroomTextBox.Size = new System.Drawing.Size(91, 20);
+            this.defaultClassroomTextBox.TabIndex = 8;
+            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 86);
+            this.ClientSize = new System.Drawing.Size(280, 144);
+            this.Controls.Add(this.defaultClassroomTextBox);
+            this.Controls.Add(this.defaultClassroomLabel);
             this.Controls.Add(this.courseNameLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.nameTextBox);
@@ -94,5 +115,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label defaultClassroomLabel;
+        private System.Windows.Forms.TextBox defaultClassroomTextBox;
     }
 }

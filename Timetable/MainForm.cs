@@ -78,35 +78,42 @@ namespace Timetable
 
         private void addCourseButton_Click(object sender, EventArgs e)
         {
-            AddCourseForm addCourseForm = new AddCourseForm();
-            addCourseForm.ShowDialog(this);
-
-            if (addCourseForm.DialogResult == DialogResult.OK)
+            //Tee tämä niin, että classroomTextbox ei tyhjenny kun tulee virheilmoitus
+            bool done = false;
+            while (!done)
             {
-                bool permissionToAddCourse = true;
+                AddCourseForm addCourseForm = new AddCourseForm();
+                addCourseForm.ShowDialog(this);
 
-                for (int i = 0; i < this.courseList.Count; ++i)
+                if (addCourseForm.DialogResult == DialogResult.OK)
                 {
-                    if (this.courseList[i].Name == addCourseForm.course.Name)
+                    bool permissionToAddCourse = true;
+
+                    for (int i = 0; i < this.courseList.Count; ++i)
                     {
-                        MessageBox.Show("Kurssi '" + addCourseForm.course.Name + "' on jo olemassa!");
+                        if (this.courseList[i].Name == addCourseForm.course.Name)
+                        {
+                            MessageBox.Show(addCourseForm, "Course '" + addCourseForm.course.Name + "' already exists!");
+                            permissionToAddCourse = false;
+                            break;
+                        }
+                    }
+                    //Ei tarkista onko nimi pelkkää whitespacea.
+                    if (addCourseForm.course.Name.Length <= 0)
+                    {
+                        MessageBox.Show("Give the course a name!");
                         permissionToAddCourse = false;
-                        break;
+                    }
+                    if (permissionToAddCourse == true)
+                    {
+                        this.courseList.Add(addCourseForm.course);
+                        this.coursesListBox.Items.Add(addCourseForm.course.Name);
+                        done = true;
                     }
                 }
-                //Ei tarkista onko nimi pelkkää whitespacea.
-                if(addCourseForm.course.Name.Length <= 0)
-                {
-                    MessageBox.Show("Anna kurssille nimi!");
-                    permissionToAddCourse = false;
-                }
-                if (permissionToAddCourse == true)
-                {
-                    this.courseList.Add(addCourseForm.course);
-                    this.coursesListBox.Items.Add(addCourseForm.course.Name);
-                }
+                else if (addCourseForm.DialogResult == DialogResult.Cancel) done = true;
+                addCourseForm.Dispose();
             }
-            addCourseForm.Dispose();
         }
 
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)

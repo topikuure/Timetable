@@ -12,13 +12,15 @@ namespace Timetable
         private List<Lesson> lessonList = new List<Lesson>();
 
         public string Name { get; set; }
+        public string DefaultClassroom { get; set; }
         public Color NameColor { get; set; } = Settings.LessonNameColor;
         public Color ClassroomColor { get; set; } = Settings.LessonClassroomColor;
         public Color BackColor { get; set; } = Settings.LessonBackColor;
 
-        public Course(string name)
+        public Course(string name, string defaultClassroom = null)
         {
             this.Name = name;
+            this.DefaultClassroom = defaultClassroom;
         }
         public void AddLesson(Lesson lesson)
         {

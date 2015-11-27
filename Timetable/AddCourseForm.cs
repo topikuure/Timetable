@@ -22,7 +22,7 @@ namespace Timetable
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            course = new Course(this.nameTextBox.Text);
+            course = new Course(this.nameTextBox.Text, this.defaultClassroomTextBox.Text);
         }
 
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
