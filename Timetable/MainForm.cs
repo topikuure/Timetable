@@ -22,10 +22,6 @@ namespace Timetable
             this.timetableLayoutPanel.BackColor = Settings.TimeTableBackColor;
             this.ChangeDayLabelColor(Settings.DayLabelColor);
             this.ChangeTimeLabelColor(Settings.TimeLabelColor);
-
-            //Testi
-            Course testCourse = new Course("Kurssi");
-            this.AddCourse(testCourse);
         }
 
         public void AddCourse(Course course)
@@ -34,11 +30,11 @@ namespace Timetable
             this.coursesListBox.Items.Add(course.Name);
         }
 
-        //Ei toimi joskus randomisti: this.timetableLayoutPanel.Controls.Remove(course.GetLesson(i).CellControl)
         public void RemoveCourse(Course course)
         {
             for (int i = 0; i < course.LessonCount(); ++i)
             {
+                //BUGI: Joskus tuhoaa vain osan tunneista
                 this.timetableLayoutPanel.Controls.Remove(course.GetLesson(i).CellControl);
             }
 
@@ -78,44 +74,19 @@ namespace Timetable
 
         private void addCourseButton_Click(object sender, EventArgs e)
         {
-            //Tee tämä niin, että classroomTextbox ei tyhjenny kun tulee virheilmoitus
-            bool done = false;
-            while (!done)
+            AddCourseForm addCourseForm = new AddCourseForm(this.courseList);
+            addCourseForm.ShowDialog(this);
+
+            if (addCourseForm.DialogResult == DialogResult.OK)
             {
-                AddCourseForm addCourseForm = new AddCourseForm();
-                addCourseForm.ShowDialog(this);
-
-                if (addCourseForm.DialogResult == DialogResult.OK)
-                {
-                    bool permissionToAddCourse = true;
-
-                    for (int i = 0; i < this.courseList.Count; ++i)
-                    {
-                        if (this.courseList[i].Name == addCourseForm.course.Name)
-                        {
-                            MessageBox.Show(addCourseForm, "Course '" + addCourseForm.course.Name + "' already exists!");
-                            permissionToAddCourse = false;
-                            break;
-                        }
-                    }
-                    //Ei tarkista onko nimi pelkkää whitespacea.
-                    if (addCourseForm.course.Name.Length <= 0)
-                    {
-                        MessageBox.Show("Give the course a name!");
-                        permissionToAddCourse = false;
-                    }
-                    if (permissionToAddCourse == true)
-                    {
-                        this.courseList.Add(addCourseForm.course);
-                        this.coursesListBox.Items.Add(addCourseForm.course.Name);
-                        done = true;
-                    }
-                }
-                else if (addCourseForm.DialogResult == DialogResult.Cancel) done = true;
-                addCourseForm.Dispose();
+                    this.courseList.Add(addCourseForm.Course);
+                    this.coursesListBox.Items.Add(addCourseForm.Course.Name);
             }
+            addCourseForm.Dispose();
         }
 
+        //Metodi ei tarkista onko kursorin alla valittu kurssi.
+        //Vain courseLstBoxissa valitulla kurssilla on väliä.
         private void coursesListBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -128,14 +99,12 @@ namespace Timetable
             }
             else if(e.Button == MouseButtons.Right)
             {
-                //Testaa onko hiiren alla valittu kurssi
                 this.coursesListBox.ContextMenuStrip.Show(this.coursesListBox.PointToScreen(new Point(e.X, e.Y)));
             }
         }
 
         private void timetableLayoutPanel_DragEnter(object sender, DragEventArgs e)
         {
-            //Testaa väärällä tyypillä
             if(e.Data.GetData(typeof(Lesson)).GetType() == typeof(Lesson)) e.Effect = DragDropEffects.Move;
         }
 
@@ -186,26 +155,6 @@ namespace Timetable
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void printToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintDocument_PrintPage;
-
-            PrintDialog dialog = new PrintDialog();
-            dialog.PrinterSettings = printDocument.PrinterSettings;
-
-            if (dialog.ShowDialog(this) == DialogResult.OK)
-            {
-                printDocument.Print();
-            }
-            dialog.Dispose();
-        }
-
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             Bitmap bitmap = new Bitmap(this.timetableLayoutPanel.Size.Width, this.timetableLayoutPanel.Size.Height);
@@ -229,6 +178,42 @@ namespace Timetable
                         this.RemoveCourse(this.courseList[i]);
                 }
             }
+        }
+
+        //Menustrip
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented");
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented");
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented");
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintDocument_PrintPage;
+
+            PrintDialog dialog = new PrintDialog();
+            dialog.PrinterSettings = printDocument.PrinterSettings;
+
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+            dialog.Dispose();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

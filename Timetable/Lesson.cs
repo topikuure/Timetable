@@ -13,20 +13,9 @@ namespace Timetable
     public class Lesson
     {
         private ContextMenuStrip CellControlContextMenuStrip = new ContextMenuStrip();
-        private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Poista");
+        private ToolStripMenuItem removeToolStripMenuItem = new ToolStripMenuItem("Remove");
         private TableLayoutPanel tableLayoutPanel;
-        private Course course;
-        public Course Course
-        {
-            get
-            {
-                return course;
-            }
-            private set
-            {
-                course = value;
-            }
-        }
+        public Course Course { get; private set; }
         private Label nameLabel = new Label();
         private TextBox classroomTextBox = new TextBox();
 
@@ -55,15 +44,17 @@ namespace Timetable
             this.nameLabel.Text = course.Name;
             this.nameLabel.ForeColor = course.NameColor;
             this.nameLabel.BackColor = course.BackColor;
-            this.nameLabel.Margin = new Padding(2);
+            this.nameLabel.Margin = new Padding(0);
+            this.nameLabel.Padding = new Padding(0);
             this.nameLabel.MouseDown += NameLabel_MouseDown;
 
             this.classroomTextBox.Text = course.DefaultClassroom;
-            this.classroomTextBox.MaxLength = 11;
+            //this.classroomTextBox.MaxLength = 11;
             this.classroomTextBox.BorderStyle = BorderStyle.None;
             this.classroomTextBox.ForeColor = course.ClassroomColor;
             this.classroomTextBox.BackColor = course.BackColor;
             this.classroomTextBox.Margin = new Padding(3, 0, 0, 0);
+            this.classroomTextBox.Padding = new Padding(0);
             this.classroomTextBox.LostFocus += new EventHandler(this.classroomTextBox_LostFocus);
 
             this.CellControl.WrapContents = false;
@@ -74,6 +65,7 @@ namespace Timetable
             this.CellControl.Padding = new Padding(0);
             this.CellControl.MouseDown += CellControl_MouseDown;
             this.CellControl.MouseWheel += CellControl_MouseWheel;
+            this.CellControl.BorderStyle = BorderStyle.FixedSingle;
 
             this.CellControl.Controls.Add(nameLabel);
             this.CellControl.Controls.Add(classroomTextBox);
@@ -88,7 +80,7 @@ namespace Timetable
 
         private void RemoveToolStripMenuItem_MouseDown(object sender, MouseEventArgs e)
         {
-            this.course.RemoveLesson(this);
+            this.Course.RemoveLesson(this);
             this.tableLayoutPanel.Controls.Remove(this.CellControl);
         }
 
@@ -119,7 +111,7 @@ namespace Timetable
         {
             if (e.Button == MouseButtons.Left)
             {
-                this.course.RemoveLesson(this);
+                this.Course.RemoveLesson(this);
                 this.CellControl.DoDragDrop(this, DragDropEffects.Move);
             }
             else if(e.Button == MouseButtons.Right)
